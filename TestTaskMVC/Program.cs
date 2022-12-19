@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IGenericService<User>, UserService>();
 builder.Services.AddScoped<IGenericService<Product>, ProductService>();
 
-//builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddDbContext<AppDbContext>(options => 
         options.UseSqlServer(builder.Configuration.GetConnectionString("NapaBase")));

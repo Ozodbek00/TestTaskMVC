@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TestTaskMVC.Data.DTOs;
 using TestTaskMVC.Data.Services;
 using TestTaskMVC.Models;
 
@@ -13,6 +14,10 @@ namespace TestTaskMVC.Controllers
         {
             this.service = service;
         }
+
+        [HttpGet]
+        public IActionResult Register(string returnUrl) => View(new UserRegister() { ReturnUrl = returnUrl });
+
         public IActionResult Index()
         {
             return View();
