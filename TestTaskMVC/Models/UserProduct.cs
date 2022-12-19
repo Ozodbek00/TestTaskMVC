@@ -13,5 +13,7 @@ namespace TestTaskMVC.Models
         public long ProductId { get; set; }
         [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
     }
 }

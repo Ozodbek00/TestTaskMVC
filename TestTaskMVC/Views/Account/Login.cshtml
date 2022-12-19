@@ -1,0 +1,44 @@
+﻿@model UserLogin
+
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="row text">
+  <div class="col-md-8 offset-2">
+    <p>
+    <h1 style="text-align:center;">Login</h1>
+    </p>
+    <div class="row">
+      <div class="col-md-8 offset-2">
+        <form method="post" asp-action="Login">
+          <input hidden="true" asp-for="@Model.ReturnUrl">
+          <div class="form-group">
+            <label asp-for="UserName" class="control-label"></label>
+            <input type="text" asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+                        @{
+                            if (ViewBag.UserNotFount == false)
+                            {
+                        <p class="text-danger">Username is not exist.</p>
+                            }
+                        }
+          </div>
+          <div class="form-group">
+            <label asp-for="Password" class="control-label"></label>
+            <input type="Password" asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+                        @{
+                            if (ViewBag.PasswordError == false)
+                            {
+                        <p class="text-danger">Password is invalid.</p>
+                            }
+                        }
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p>do not have account. <a href="register?ReturnUrl=@Model.ReturnUrl">Register</a></p>
+      </div>
+    </div>
+  </div>
+</div>
