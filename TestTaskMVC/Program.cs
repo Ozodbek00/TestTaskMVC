@@ -1,6 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using TestTaskMVC.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<AppDbContext>(options => 
+options.UseSqlServer(builder.Configuration.GetConnectionString("NapaBase")));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -19,6 +26,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+AppDbInitializer.Seed(app);
 
 app.MapControllerRoute(
     name: "default",
