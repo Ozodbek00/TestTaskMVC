@@ -7,9 +7,9 @@ namespace TestTaskMVC.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly IGenericService<Product> service;
+        private readonly IProductService service;
 
-        public ProductsController(IGenericService<Product> service)
+        public ProductsController(IProductService service)
         {
             this.service = service;
         }

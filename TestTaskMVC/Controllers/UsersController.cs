@@ -8,9 +8,9 @@ namespace TestTaskMVC.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly IGenericService<User> service;
+        private readonly IUserService service;
 
-        public UsersController(IGenericService<User> service)
+        public UsersController(IUserService service)
         {
             this.service = service;
         }

@@ -1,14 +1,16 @@
-﻿namespace TestTaskMVC.Data.Services
+﻿using TestTaskMVC.Models;
+
+namespace TestTaskMVC.Data.Services
 {
-    public interface IGenericService<TSource> where TSource: class
+    public interface IProductService
     {
-        Task<TSource> CreateAsync(TSource source);
+        Task<Product> CreateAsync(Product source);
 
-        Task<TSource> UpdateAsync(long id, TSource source);
+        Task<Product> UpdateAsync(long id, Product source);
 
-        Task<TSource> GetById(long id);
+        Task<Product> GetById(long id);
 
-        Task<TSource[]> GetAllAsync();
+        Task<Product[]> GetAllAsync();
 
         Task DeleteAsync(long id);
     }

@@ -3,7 +3,7 @@ using TestTaskMVC.Models;
 
 namespace TestTaskMVC.Data.Services
 {
-    public class UserService : IGenericService<User>
+    public class UserService : IUserService
     {
         private readonly AppDbContext dbContext;
 

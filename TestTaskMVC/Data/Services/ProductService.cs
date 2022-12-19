@@ -3,7 +3,7 @@ using TestTaskMVC.Models;
 
 namespace TestTaskMVC.Data.Services
 {
-    public class ProductService : IGenericService<Product>
+    public class ProductService : IProductService
     {
         private readonly AppDbContext dbContext;
         private readonly IConfiguration configuration;

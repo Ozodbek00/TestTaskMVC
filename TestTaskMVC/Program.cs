@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TestTaskMVC.Configurations;
 using TestTaskMVC.Data;
 using TestTaskMVC.Data.Services;
 using TestTaskMVC.Models;
@@ -6,9 +7,9 @@ using TestTaskMVC.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddScoped<IGenericService<User>, UserService>();
-builder.Services.AddScoped<IGenericService<Product>, ProductService>();
+builder.ConfigureJwt();
+builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<IProductService, ProductService>();
 
 builder.Services.AddHttpContextAccessor();
 
